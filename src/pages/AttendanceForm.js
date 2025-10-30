@@ -9,7 +9,6 @@ function AttendanceForm() {
         date: "",
         status: 'Present',
     });
-
     const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
@@ -18,7 +17,7 @@ function AttendanceForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
         if (!formData.employeeName || !formData.employeeID || !formData.date) {
             alert('Please fill in all fields');
             return;
@@ -27,8 +26,8 @@ function AttendanceForm() {
         setLoading(true);
 
         try {
-            const response = await axios.post(API_URL, formData);
-            alert('✅ Attendance recorded successfully');
+            await axios.post(API_URL, formData);
+            alert('Attendance recorded successfully!');
             setFormData({
                 employeeName: "",
                 employeeID: "",
@@ -36,7 +35,7 @@ function AttendanceForm() {
                 status: 'Present'
             });
         } catch (error) {
-            alert('❌ Error: ' + (error.response?.data?.error || 'Failed to record attendance'));
+            alert('Error: Failed to record attendance. Please try again.');
         } finally {
             setLoading(false);
         }

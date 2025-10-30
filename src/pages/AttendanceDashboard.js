@@ -5,21 +5,17 @@ import API_URL from '../config';
 function AttendanceDashboard() {
     const [records, setRecords] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
         fetchData();
     }, []);
 
     const fetchData = async () => {
-        setLoading(true);
-        setError(null);
-
         try {
             const response = await axios.get(API_URL);
             setRecords(response.data);
         } catch (error) {
-            setError('Failed to load records. Make sure backend is running!');
+            console.log('Error loading records');
         } finally {
             setLoading(false);
         }
@@ -29,10 +25,10 @@ function AttendanceDashboard() {
         if (window.confirm('Are you sure you want to delete this record?')) {
             try {
                 await axios.delete(`${API_URL}/${id}`);
-                alert('✅ Record deleted successfully');
+                alert('Record deleted successfully');
                 fetchData();
             } catch (error) {
-                alert('❌ Failed to delete record');
+                alert('Failed to delete record');
             }
         }
     };
@@ -46,8 +42,9 @@ function AttendanceDashboard() {
         });
     };
 
-    if (loading) return <h2 style={{ textAlign: 'center', color: '#fff' }}>Loading...</h2>;
-    if (error) return <h2 style={{ textAlign: 'center', color: '#fff' }}>{error}</h2>;
+    if (loading) {
+        return <h2 style={{ textAlign: 'center', color: '#fff' }}>Loading...</h2>;
+    }
 
     return (
         <div>

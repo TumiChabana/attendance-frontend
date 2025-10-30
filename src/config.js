@@ -1,5 +1,3 @@
-const API_URL = process.env.NODE_ENV === 'production' 
-    ? 'https://attendance-backend-ag1i.onrender.com/api/attendance'
-    : 'http://localhost:5000/api/attendance';
-
+// Simple configuration - update with your Render URL after deployment
+const API_URL = 'https://attendance-backend-ag1i.onrender.com/api/attendance';
 export default API_URL;
