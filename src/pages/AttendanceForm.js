@@ -16,31 +16,39 @@ function AttendanceForm() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+   const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        if (!formData.employeeName || !formData.employeeID || !formData.date) {
-            alert('Please fill in all fields');
-            return;
-        }
+    if (!formData.employeeName || !formData.employeeID || !formData.date) {
+        alert('Please fill in all fields');
+        return;
+    }
 
-        setLoading(true);
+    setLoading(true);
 
-        try {
-            const response = await axios.post(API_URL, formData);
-            alert('Attendance recorded successfully');
-            setFormData({
-                employeeName: "",
-                employeeID: "",
-                date: "",
-                status: 'Present'
-            });
-        } catch (error) {
-            alert('Error: ' + (error.response?.data?.error || 'Failed to record attendance'));
-        } finally {
-            setLoading(false);
-        }
-    };
+    try {
+        console.log('Sending data to:', API_URL);
+        console.log('Data:', formData);
+        
+        const response = await axios.post(API_URL, formData);
+        console.log('Success response:', response.data);
+        alert('✅ Attendance recorded successfully');
+        
+        setFormData({
+            employeeName: "",
+            employeeID: "",
+            date: "",
+            status: 'Present'
+        });
+    } catch (error) {
+        console.error('Full error:', error);
+        console.error('Error response:', error.response);
+        alert('❌ Error: ' + (error.response?.data?.error || error.message || 'Failed to record attendance'));
+    } finally {
+        setLoading(false);
+    }
+};
+    
 
     return (
         <form onSubmit={handleSubmit}>
