@@ -1,0 +1,189 @@
+body {
+    font-family: Verdana, sans-serif;
+    background-color: #000;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrap {
+    flex: 1;
+}
+
+nav {
+    background-color: #fff;
+    padding: 15px 0;
+    text-align: center;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #666;
+}
+
+.welcome-message {
+    text-align: center;
+    background-color: #fff;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.welcome-message h1 {
+    color: #000;
+    margin: 0 0 10px 0;
+    font-size: 28px;
+}
+
+.welcome-message p {
+    color: #666;
+    margin: 0;
+    font-size: 16px;
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+    margin-top: 30px;
+}
+
+form {
+    background-color: #fff;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #000;
+    outline: none;
+}
+
+form button {
+    background-color: #000;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+form button:hover:not(:disabled) {
+    background-color: #333;
+}
+
+form button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.attendance-table {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.attendance-table th,
+.attendance-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.attendance-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    color: #333;
+}
+
+.attendance-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.status-badge.present {
+    background-color: #4caf50;
+    color: white;
+}
+
+.status-badge.absent {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+.footer {
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
