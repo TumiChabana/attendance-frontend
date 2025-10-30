@@ -16,13 +16,10 @@ function AttendanceDashboard() {
         setError(null);
 
         try {
-            console.log('Fetching from:', API_URL);
             const response = await axios.get(API_URL);
-            console.log('Received data:', response.data);
             setRecords(response.data);
         } catch (error) {
-            console.error('Full fetch error:', error);
-            setError('Failed to load records: ' + (error.response?.data?.error || error.message));
+            setError('Failed to load records. Make sure backend is running!');
         } finally {
             setLoading(false);
         }
@@ -35,8 +32,7 @@ function AttendanceDashboard() {
                 alert('✅ Record deleted successfully');
                 fetchData();
             } catch (error) {
-                console.error('Delete error:', error);
-                alert('❌ Failed to delete record: ' + (error.response?.data?.error || error.message));
+                alert('❌ Failed to delete record');
             }
         }
     };
@@ -51,41 +47,13 @@ function AttendanceDashboard() {
     };
 
     if (loading) return <h2 style={{ textAlign: 'center', color: '#fff' }}>Loading...</h2>;
-    
-    if (error) {
-        return (
-            <div style={{ textAlign: 'center', color: '#fff', padding: '20px' }}>
-                <h2>Error Loading Data</h2>
-                <p>{error}</p>
-                <button onClick={fetchData} style={{
-                    padding: '10px 20px',
-                    marginTop: '20px',
-                    cursor: 'pointer',
-                    backgroundColor: '#fff',
-                    border: 'none',
-                    borderRadius: '4px'
-                }}>
-                    Try Again
-                </button>
-            </div>
-        );
-    }
+    if (error) return <h2 style={{ textAlign: 'center', color: '#fff' }}>{error}</h2>;
 
     return (
         <div>
             <h2>Attendance History</h2>
             <div style={{ textAlign: 'center', marginBottom: '20px' }}>
                 <p style={{ color: '#fff' }}>Total Records: {records.length}</p>
-                <button onClick={fetchData} style={{
-                    padding: '8px 16px',
-                    cursor: 'pointer',
-                    backgroundColor: '#fff',
-                    border: 'none',
-                    borderRadius: '4px',
-                    marginLeft: '10px'
-                }}>
-                    Refresh
-                </button>
             </div>
             <table className="attendance-table">
                 <thead>
