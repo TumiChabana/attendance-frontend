@@ -22,7 +22,7 @@ function App() {
                     </Routes>
                 </div>
                 <footer className="footer">
-                    <p>Created by Itumeleng Priscilla Chabanas</p>
+                    <p>Created by ~ Itumeleng Priscilla Chabana</p>
                 </footer>
             </div>
         </Router>

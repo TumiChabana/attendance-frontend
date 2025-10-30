@@ -28,7 +28,7 @@ function AttendanceForm() {
 
         try {
             const response = await axios.post(API_URL, formData);
-            alert('✅ Attendance recorded successfully');
+            alert('Attendance recorded successfully');
             setFormData({
                 employeeName: "",
                 employeeID: "",
@@ -36,7 +36,7 @@ function AttendanceForm() {
                 status: 'Present'
             });
         } catch (error) {
-            alert('❌ Error: ' + (error.response?.data?.error || 'Failed to record attendance'));
+            alert('Error: ' + (error.response?.data?.error || 'Failed to record attendance'));
         } finally {
             setLoading(false);
         }

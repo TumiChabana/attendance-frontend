@@ -155,17 +155,17 @@ form button:disabled {
 }
 
 .status-badge.present {
-    background-color: #4caf50;
+    background-color: #23ec4b;
     color: white;
 }
 
 .status-badge.absent {
-    background-color: #f44336;
+    background-color: #f4ab36;
     color: white;
 }
 
 .delete-btn {
-    background-color: #f44336;
+    background-color: grey;
     color: white;
     padding: 6px 12px;
     border: none;

@@ -29,10 +29,10 @@ function AttendanceDashboard() {
         if (window.confirm('Are you sure you want to delete this record?')) {
             try {
                 await axios.delete(`${API_URL}/${id}`);
-                alert('✅ Record deleted successfully');
+                alert('Record deleted successfully');
                 fetchData();
             } catch (error) {
-                alert('❌ Failed to delete record');
+                alert('Failed to delete record');
             }
         }
     };
